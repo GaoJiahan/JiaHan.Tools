@@ -21,6 +21,9 @@ public class Dispose<T> : IDisposable
 
     public Action Action { get; set; } = default!;
 
+
+    public static implicit operator T(Dispose<T> d) => d.Value;
+
     void IDisposable.Dispose()
     {
         Action?.Invoke();
